@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a change for a later (post-alpha) release
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project is **alpha**. Workspace write scope (`WORKING_DIR/tmp` only) is a conservative default and is expected to become configurable — say so if that is what you need.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is painful today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should change? Keep it a daemon, not a GUI or extra chat network unless you argue why.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Sandbox / workspace
+        - Telegram UX
+        - Ollama / tools
+        - LaunchAgent / install
+        - Memory / SQLite
+        - Docs
+        - Other
+    validations:
+      required: true

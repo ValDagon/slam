@@ -1,0 +1,52 @@
+name: Bug report
+description: Something does not work as the spec or README describes
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for a report. **Do not paste** a Telegram bot token, Keychain dump, `.env`, or `config.json` that contains secrets.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: S.L.A.M version
+      placeholder: output of `slam version`
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "e.g. 15.6"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How is the daemon running?
+      options:
+        - LaunchAgent (`./install.sh`)
+        - `swift run slam run`
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (redacted)
+      description: From `./install.sh logs` or `~/.local/state/slam/logs/`. Strip tokens and chat ids if you consider them private.
+      render: shell
+  - type: checkboxes
+    id: tests
+    attributes:
+      label: Local check
+      options:
+        - label: I ran `swift test` (or cannot, and I explained why)
